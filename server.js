@@ -1,15 +1,5 @@
 /********************************************************************************
-*  WEB422 – Assignment 1
-* 
-*  I declare that this assignment is my own work in accordance with Seneca's
-*  Academic Integrity Policy:
-* 
-*  https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
-* 
-*  Name: Rong Gang Xu Student ID: 129160230 Date: May 15th, 2024
-*
-*  Published URL: ___________________________________________________________
-*
+*  Published URL: https://web422-as1-wuzl.onrender.com/
 ********************************************************************************/
 
 const express = require('express');
@@ -35,7 +25,7 @@ app.post('/api/listings', (req, res) => {
     
     db.addNewListing(req.body)
         .then(newListing => res.status(201).json(newListing))
-        .catch(err => res.status(500).json({error: "Failed to create new listing", details: err.message}));
+        .catch(err => res.status(500).json({error: "Failed to add new listing", information: err.message}));
 });
 
 app.get('/api/listings', (req, res) => {
@@ -46,7 +36,7 @@ app.get('/api/listings', (req, res) => {
             res.json(listings);
         })
         .catch(err => {
-            res.status(500).json({Error: 'Failed to fetch listings', details: err.message});
+            res.status(500).json({Error: 'Failed to get listings', information: err.message});
         })
 })
 
@@ -61,7 +51,7 @@ app.get('/api/listings/:id', (req, res) => {
                 res.status(404).json({Error: 'Listing not found'});
         })
         .catch(err => {
-            res.status(500).json({Error: 'Failed to fetch the desired listing', details: err.message});
+            res.status(500).json({Error: 'Failed to get the desired listing', information: err.message});
         })
 })
 
@@ -77,7 +67,7 @@ app.put('/api/listings/:id', (req, res) => {
                 res.status(404).json({Error: 'No changes made or listing not found'});
         })
         .catch((err) => {
-            res.status(500).json({Error: 'Failed to updated the selected listing', details: err.message});
+            res.status(500).json({Error: 'Failed to update the selected listing', information: err.message});
         })
 })
 
@@ -92,7 +82,7 @@ app.delete('/api/listings/:id', (req, res) => {
             else res.status(404).json({Error: 'Listing not found'});
         })
         .catch(err => {
-            res.status(500).json({Error: 'Failed to delete listing', details: err.message});
+            res.status(500).json({Error: 'Failed to delete the listing', information: err.message});
         })
 })
 db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
