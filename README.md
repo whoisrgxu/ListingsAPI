@@ -21,7 +21,7 @@ This project is a simple Web API built with Node.js, Express, and MongoDB. It is
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/listingsAPI.git
+    git clone https://github.com/whoisrgxu/ListingsAPI
     cd listingsAPI
     ```
 
@@ -50,10 +50,10 @@ This project is a simple Web API built with Node.js, Express, and MongoDB. It is
 
 1. Start the server:
     ```sh
-    npm start
+    npm server
     ```
 
-2. The server will be running on `http://localhost:3000`.
+2. The server will be running on `http://localhost:8080`.
 
 ## API Endpoints
 
@@ -67,6 +67,24 @@ This project is a simple Web API built with Node.js, Express, and MongoDB. It is
 
 **Adding a New Listing**
 ```sh
-curl -X POST http://localhost:3000/api/listings \
+curl -X POST http://localhost:8080/api/listings \
+-H "Content-Type: application/json" 
+-d '{"name": "New Listing", "description": "A beautiful place to stay.", "number_of_reviews": 10}```
+**Getting Listings**
+```sh
+curl http://localhost:8080/api/listings?page=1&perPage=5
+``` 
+**Getting a Listing by ID**
+```sh
+curl http://localhost:8080/api/listings/your_listing_id 
+```
+**Updating a listing** 
+```sh
+curl -X PUT http://localhost:8080/api/listings/your_listing_id \
 -H "Content-Type: application/json" \
--d '{"name": "New Listing", "description": "A beautiful place to stay.", "number_of_reviews": 10}'
+-d '{"name": "Updated Listing", "description": "An updated description.", "number_of_reviews": 15}'
+```
+**Deleting a listing** 
+```sh
+curl -X DELETE http://localhost:3000/api/listings/your_listing_id
+```
