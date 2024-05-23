@@ -69,8 +69,10 @@ This project is a simple Web API built with Node.js, Express, and MongoDB. It is
 ```sh
 curl -X POST http://localhost:8080/api/listings \
 -H "Content-Type: application/json" 
--d '{"name": "New Listing", "description": "A beautiful place to stay.", "number_of_reviews": 10}```
-**Getting Listings**
+-d '{"name": "New Listing", "description": "A beautiful place to stay.", "number_of_reviews": 10}
+'
+```
+**Getting Listings** 
 ```sh
 curl http://localhost:8080/api/listings?page=1&perPage=5
 ``` 
@@ -82,9 +84,9 @@ curl http://localhost:8080/api/listings/your_listing_id
 ```sh
 curl -X PUT http://localhost:8080/api/listings/your_listing_id \
 -H "Content-Type: application/json" \
--d '{"name": "Updated Listing", "description": "An updated description.", "number_of_reviews": 15}'
+-d '{"name": "New Listing", "description": "A beautiful place to stay.", "number_of_reviews": 10}'
 ```
 **Deleting a listing** 
 ```sh
-curl -X DELETE http://localhost:3000/api/listings/your_listing_id
+curl -X DELETE http://localhost:8080/api/listings/your_listing_id
 ```
